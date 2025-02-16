@@ -1,6 +1,7 @@
 import argparse
 import cv2
 import numpy as np
+import time 
 from scipy.fftpack import fft2, ifft2, fftshift, ifftshift
 from perlin_noise import PerlinNoise
 
@@ -48,6 +49,7 @@ def apply_augmentation(image, gaussian_level, perlin_level):
     return image
 
 def main():
+    start_time = time.time()
     parser = argparse.ArgumentParser()
     parser.add_argument("--input_image", type=str, help="入力画像ファイル")
     parser.add_argument("--gaussian_level", type=float, default=0, help="ガウシアンノイズの強度")
@@ -67,7 +69,11 @@ def main():
 
     output_image = apply_augmentation(image, args.gaussian_level, args.perlin_level)
     cv2.imwrite("output.png", output_image)
-    print("ノイズ画像を保存しました: output.png")
+    print("Saved: output.png")
+    end_time = time.time()
+    # 結果表示
+    elapsed_time = end_time - start_time
+    print(f"処Process Time: {elapsed_time}秒")
 
 if __name__ == "__main__":
     main()
