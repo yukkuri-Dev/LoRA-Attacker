@@ -16,3 +16,4 @@
 <p>ここからダウンロード https://www.python.org/downloads/</p>
 <h2>必要なライブラリの追加</h2>
 <p>環境変数設定済みの環境にてこれを実行<br>pip install opencv-python numpy scipy perlin-noise</p>
+# MIT License
